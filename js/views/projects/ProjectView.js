@@ -16,7 +16,6 @@ window.ProjectView = Backbone.View.extend({
   },
   activate: function(){
     $(this.el).addClass("selected");
-    window.current_project = this.model;
-    redirect_to("issues");
+    redirect_to("project/" + this.model.id + "/issues");
   }
 });

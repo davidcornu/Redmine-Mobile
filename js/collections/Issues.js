@@ -3,7 +3,8 @@ window.Issues = Backbone.Collection.extend({
   populate: function(callback){
     var issues = this;
     var results = [];
-    $.getJSON("/issues.json?key=" + user.get("key") + "&project=" + window.current_project, function(data){
+    var project = this.project;
+    $.getJSON("/issues.json?key=" + user.get("key") + "&project=" + project.id, function(data){
       $.each(data.issues, function(index, issue){
         var model = new Issue(issue);
         results.push(model);

@@ -1,15 +1,14 @@
 window.Controller = Backbone.Router.extend({
   routes: {
-    ''        : 'root',
-    'new_user': 'new_user',
-    'projects': 'projects',
-    'issues'  : 'issues'
+    ''                  : 'root',
+    'new_user'          : 'new_user',
+    'projects'          : 'projects',
+    'project/:id/issues': 'issues'
   },
   initialize: function(){
     window.user = new User();
     if(typeof(localStorage.user) == 'string'){ window.user.set(JSON.parse(localStorage.user)); }
     window.projects = new Projects();
-    window.issues = new Issues();
     window.nav_direction = 'forward';
     
     $("a.back").live('touchstart', function(){ 
@@ -30,10 +29,12 @@ window.Controller = Backbone.Router.extend({
     transition_to(view.render().el);
     if(window.projects.length == 0){ window.projects.populate(); }
   },
-  issues: function(){
-    var view = new IssuesView({collection: window.issues});
+  issues: function(id){
+    var project = window.projects.get(id);
+    var issues = new Issues({project: project});
+    var view = new IssuesView({collection: issues});
     transition_to(view.render().el);
-    window.issues.reset().populate();
+    issues.populate();
   }
 });
 

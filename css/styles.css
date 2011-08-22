@@ -118,14 +118,16 @@ a.back:active{
 }
 
 .users ul li.selected, .projects ul li.selected{
-  background: -webkit-gradient(
+  background-image: url(../img/next_w.png), -webkit-gradient(
     linear, 
     left top, 
     left bottom, 
-    from(#DF2619), 
-    to(#CE2316)
+    from(#5996FF), 
+    to(#005EFF)
   ) !important;
-  border-color: #DF2619 !important;
+  background-position: right;
+  background-repeat: no-repeat;
+  border-color: #0044BD !important;
   color: white;
 }
 
