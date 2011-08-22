@@ -45,9 +45,18 @@ textarea{
   min-height: 60px;
 }
 
+.loading{
+  display: block;
+  height: 20px;
+  width: 29px;
+  background: url(../img/loading.gif) no-repeat;
+  float: right;
+  display: none;
+}
+
 a.back{
   display: inline-block;
-  border: 1px solid #002AAB;
+  border: 1px solid #8E180F;
   -webkit-border-radius: 5px;
   font-size: 12px;
   padding: 4px 8px;
@@ -55,22 +64,22 @@ a.back{
   margin-left: -5px;
   margin-right: 3px;
   background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(1, #0C38F4),
-      color-stop(0, #001DB8)
+    linear,
+    left bottom,
+    left top,
+    from(#9C1A10),
+    to(#DE271B)
   );
 }
 
 a.back:active{
   border-color: #3B5495;
   background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(1, #728DEB),
-      color-stop(0, #3E53A3)
+    linear,
+    left bottom,
+    left top,
+    from(#883531)
+    to(#D76561),
   );
 }
 
@@ -91,7 +100,7 @@ a.back:active{
   color: white;
   font-weight: normal;
   margin: 0;
-  background: blue;
+  background: #ed1c24;
 }
 
 .users ul, .projects ul{
@@ -109,8 +118,14 @@ a.back:active{
 }
 
 .users ul li.selected, .projects ul li.selected{
-  background: -webkit-gradient(linear, left top, left bottom, from(#058CF5), to(#015DE6)) !important;
-  border-color: #058CF5 !important;
+  background: -webkit-gradient(
+    linear, 
+    left top, 
+    left bottom, 
+    from(#DF2619), 
+    to(#CE2316)
+  ) !important;
+  border-color: #DF2619 !important;
   color: white;
 }
 
@@ -137,7 +152,7 @@ a.back:active{
 }
 
 .issues .header{
-  background: blue;
+  background: #ed1c24;
 }
 
 .issues .header h1{
@@ -160,7 +175,7 @@ a.back:active{
   padding: 6px 12px;
   font-size: 12px;
   margin: 0;
-  background: #4275FF;
+  background: #F07A6C;
   -webkit-border-radius: 5px 5px 0 0;
   border: 0;
   color: white;

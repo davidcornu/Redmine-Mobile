@@ -38,12 +38,19 @@ window.Controller = Backbone.Router.extend({
 });
 
 $(function(){
+  // Start Controller
   window.app = new Controller();
   Backbone.history.start();
+  
+  // Handle Click Events
   if(_(window.Touch).isUndefined()){ 
     $(window).click(function(event){
       $(event.target).trigger("touchstart");
     });
   }
+  
+  // Show Loading
+  $.ajaxSettings.beforeSend = function(){ $('.loading').show(); }
+  $.ajaxSettings.complete = function(){ $('loading').hide(); }
 });
 

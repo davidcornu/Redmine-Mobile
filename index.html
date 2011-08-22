@@ -16,7 +16,7 @@
 
     <!-- Templates -->
     <script type="text/template" id="user-menu-template">
-      <h1>Select User</h1>
+      <h1>Select User<div class="loading"></div></h1>
       <ul>
         <li class="new">New User</li>
       </ul>
@@ -31,6 +31,7 @@
       <h1>
         <a class='back'>Back</a>
         New User
+        <div class="loading"></div>
       </h1>
       <div class="content">
         <p>Please copy and paste your Redmine API key below.</p>
@@ -45,6 +46,7 @@
       <h1>
         <a class='back'>Back</a>
         Select Project
+        <div class="loading"></div>
       </h1>
       <ul></ul>
     </script>
@@ -59,6 +61,7 @@
         <h1>
           <a class='back'>Back</a>
           <%= window.current_project.get("name") %>
+          <div class="loading"></div>
         </h1>
         <ul class="nav">
           <li class="current all">All</li>
