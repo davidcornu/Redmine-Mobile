@@ -1,0 +1,1 @@
+window.Issue = Backbone.Model.extend();

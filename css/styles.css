@@ -1,0 +1,187 @@
+/* Main Styles
+------------------------------------------------------ */
+
+html { -webkit-text-size-adjust:none }
+
+body {
+  background: #444;
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  margin: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#holder{
+	width: 100%;
+	position: relative;
+}
+
+#holder.fixed{ overflow: hidden; }
+
+.container{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+}
+
+.container.current{ 
+  -webkit-transform: translate3d(0,0,0); 
+}
+
+.container.back{ 
+  -webkit-transform: translate3d(-100%,0,0); 
+}
+
+.container.forward{ 
+  -webkit-transform: translate3d(100%,0,0); 
+}
+
+label{ display: block; }
+
+textarea{
+  width: 90%;
+  min-height: 60px;
+}
+
+a.back{
+  display: inline-block;
+  border: 1px solid #002AAB;
+  -webkit-border-radius: 5px;
+  font-size: 12px;
+  padding: 4px 8px;
+  vertical-align: top;
+  margin-left: -5px;
+  margin-right: 3px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, #0C38F4),
+      color-stop(0, #001DB8)
+  );
+}
+
+a.back:active{
+  border-color: #3B5495;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(1, #728DEB),
+      color-stop(0, #3E53A3)
+  );
+}
+
+/* Selection Screens
+------------------------------------------------------ */
+
+.users, .new_user, .projects{
+  margin: 15px;
+  -webkit-box-shadow: 0 0 10px #232323;
+  background: white;
+}
+
+.users h1,
+.new_user h1,
+.projects h1{
+  padding: 6px 10px;
+  font-size: 18px;
+  color: white;
+  font-weight: normal;
+  margin: 0;
+  background: blue;
+}
+
+.users ul, .projects ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.users ul li, .projects ul li{
+  display: block;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px solid #dadada;
+  background: white url(../img/next.png) right no-repeat;
+}
+
+.users ul li.selected, .projects ul li.selected{
+  background: -webkit-gradient(linear, left top, left bottom, from(#058CF5), to(#015DE6)) !important;
+  border-color: #058CF5 !important;
+  color: white;
+}
+
+.users ul li img{
+  float: left;
+  margin-right: 5px;
+}
+
+.new_user .content{
+  padding: 15px;
+}
+
+.new_user .content p{
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+/* Detail Screens
+------------------------------------------------------ */
+
+.issues{
+  width: 100%;
+  background: white;
+}
+
+.issues .header{
+  background: blue;
+}
+
+.issues .header h1{
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: normal;
+  margin: 0;  
+}
+
+.issues .header ul.nav{
+  display: block;
+  clear: both;
+  margin: 0;
+  padding: 0;
+}
+
+.issues .header ul li{
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 12px;
+  margin: 0;
+  background: #4275FF;
+  -webkit-border-radius: 5px 5px 0 0;
+  border: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.issues .header ul li.current{
+  background: white;
+  color: black;
+}
+
+.issues ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.issues ul li{
+  display: block;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px solid #dadada;
+  background: white url(../img/next.png) right no-repeat;
+}

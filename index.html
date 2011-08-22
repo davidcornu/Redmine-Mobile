@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- <html manifest="cache.manifest"> -->
+<html>
+  <head>
+    <title>Issues</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <!-- Mobile Safari Meta -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="white"/>
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png"/> 
+    <link rel="apple-touch-startup-image" href="splash.png" /> 
+  </head>
+  <body onload="setTimeout(function(){window.scrollTo(0, 1)},100);">
+    <div id="holder"><div class="container current"></div></div>
+
+    <!-- Templates -->
+    <script type="text/template" id="user-menu-template">
+      <h1>Select User</h1>
+      <ul>
+        <li class="new">New User</li>
+      </ul>
+    </script>
+    
+    <script type="text/template" id="user-template">
+      <strong><%= firstname %> <%= lastname %></strong><br/>
+      <small><%= mail %></small>
+    </script>
+    
+    <script type="text/template" id="new-user-template">
+      <h1>
+        <a class='back'>Back</a>
+        New User
+      </h1>
+      <div class="content">
+        <p>Please copy and paste your Redmine API key below.</p>
+        <label>Api Key</label>
+        <textarea></textarea>
+        <br/>
+        <button type="submit">Save</button>
+      </div>
+    </script>
+    
+    <script type="text/template" id="projects-template">
+      <h1>
+        <a class='back'>Back</a>
+        Select Project
+      </h1>
+      <ul></ul>
+    </script>
+    
+    <script type="text/template" id="project-template">
+      <strong><%= name %></strong><br/>
+      <small><%= truncate(description, 100) %></small>
+    </script>
+    
+    <script type="text/template" id="issues-template">
+      <div class="header">
+        <h1>
+          <a class='back'>Back</a>
+          <%= window.current_project.get("name") %>
+        </h1>
+        <ul class="nav">
+          <li class="current all">All</li>
+          <li class="my">My Issues</li>
+        </ul>
+      </div>
+      <ul></ul>
+    </script>
+    
+    <script type="text/template" id="issue-template">
+      <b><%= subject %></b><br/>
+      <small><%= truncate(description, 100) %></small>
+    </script>
+    
+    <!-- Javascript Libraries -->
+    <script src="js/lib/zepto.min.js" type="text/javascript"></script>
+    <script src="js/lib/json2.js" type="text/javascript"></script>
+    <script src="js/lib/underscore-min.js" type="text/javascript"></script>
+    <script src="js/lib/backbone-min.js" type="text/javascript"></script>
+    <script src="js/lib/md5.js" type="text/javascript"></script>
+    <script src="js/lib/jquery.gravatar.js" type="text/javascript"></script>
+    
+    <!-- Helpers -->
+    <script src="js/Helpers.js" type="text/javascript"></script>
+    
+    <!-- Models -->
+    <script src="js/models/User.js" type="text/javascript"></script>
+    <script src="js/models/Project.js" type="text/javascript"></script>
+    <script src="js/models/Issue.js" type="text/javascript"></script>
+    
+    <!-- Collections -->
+    <script src="js/collections/Projects.js" type="text/javascript"></script>
+    <script src="js/collections/Issues.js" type="text/javascript"></script>
+    
+    <!-- Views -->
+    <script src="js/views/users/UserView.js" type="text/javascript"></script>
+    <script src="js/views/users/UserMenuView.js" type="text/javascript"></script>
+    <script src="js/views/users/NewUserView.js" type="text/javascript"></script>
+    <script src="js/views/projects/ProjectView.js" type="text/javascript"></script>
+    <script src="js/views/projects/ProjectsView.js" type="text/javascript"></script>
+    <script src="js/views/issues/IssueView.js" type="text/javascript"></script>
+    <script src="js/views/issues/IssuesView.js" type="text/javascript"></script>
+    
+    <!-- Main Router -->
+    <script src="js/App.js" type="text/javascript"></script>
+  </body>
+</html>

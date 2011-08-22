@@ -1,0 +1,1 @@
+window.Project = Backbone.Model.extend({});
