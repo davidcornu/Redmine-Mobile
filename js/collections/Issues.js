@@ -4,7 +4,7 @@ window.Issues = Backbone.Collection.extend({
     var issues = this;
     var results = [];
     var project = this.project;
-    $.getJSON("/issues.json?key=" + user.get("key") + "&project=" + project.id, function(data){
+    $.getJSON("/issues.json?key=" + user.get("key") + "&project_id=" + project.id, function(data){
       $.each(data.issues, function(index, issue){
         var model = new Issue(issue);
         results.push(model);

@@ -30,11 +30,13 @@ window.Controller = Backbone.Router.extend({
     if(window.projects.length == 0){ window.projects.populate(); }
   },
   issues: function(id){
-    var project = window.projects.get(id);
-    var issues = new Issues({project: project});
-    var view = new IssuesView({collection: issues});
-    transition_to(view.render().el);
-    issues.populate();
+    window.projects.populate(function(){
+      var issues = new Issues();
+      issues.project = window.projects.get(parseInt(id));
+      var view = new IssuesView({collection: issues});
+      transition_to(view.render().el);
+      issues.populate();
+    });
   }
 });
 
