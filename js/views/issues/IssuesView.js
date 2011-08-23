@@ -12,7 +12,7 @@ window.IssuesView = Backbone.View.extend({
     this.template = _.template($("#issues-template").html());
   },
   render: function(){
-    var renderedContent = this.template();
+    var renderedContent = this.template({project_name: this.collection.project.get("name")});
     $(this.el).html(renderedContent);
     var $issues = this.$("ul").eq(1);
     var collection = this.collection;

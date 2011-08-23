@@ -17,7 +17,7 @@ window.NewUserView = Backbone.View.extend({
     window.user.set({key: api_key});
     window.user.populate(function(){
       window.user.save();
-      redirect_to("");
+      redirect_to(root_path());
     });
   }
 });

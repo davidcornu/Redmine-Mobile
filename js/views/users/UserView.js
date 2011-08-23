@@ -17,6 +17,6 @@ window.UserView = Backbone.View.extend({
   },
   activate: function(){
     $(this.el).addClass("selected");
-    redirect_to("projects");
+    redirect_to(projects_path());
   }
 });

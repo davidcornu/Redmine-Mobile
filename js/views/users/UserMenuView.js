@@ -20,6 +20,6 @@ window.UserMenuView = Backbone.View.extend({
   },
   show_new_user_form: function(){
     this.$("li.new").addClass("selected");
-    redirect_to("new_user");
+    redirect_to(new_user_path());
   }
 });

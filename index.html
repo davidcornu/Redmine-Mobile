@@ -12,7 +12,11 @@
     <link rel="apple-touch-startup-image" href="splash.png" /> 
   </head>
   <body onload="setTimeout(function(){window.scrollTo(0, 1)},100);">
-    <div id="holder"><div class="container current"></div></div>
+    <div id="holder">
+      <div class="container current">
+        <div id="placeholder"></div>
+      </div>
+    </div><!-- #holder -->
 
     <!-- Templates -->
     <script type="text/template" id="user-menu-template">
@@ -60,7 +64,7 @@
       <div class="header">
         <h1>
           <a class='back'>Back</a>
-          Project
+          <%= project_name %>
           <div class="loading"></div>
         </h1>
         <ul class="nav">
@@ -76,6 +80,41 @@
       <small><%= truncate(description, 100) %></small>
     </script>
     
+    <script type="text/template" id="issue-detail-template">
+      <div class="header">
+        <h1>
+          <a class="back">Back</a>
+          Issue
+          <div class="loading"></div>
+        </h1>
+      </div>
+      <div class="content">
+        <table>
+          <tr>
+            <td colspan=2><h2><%= subject %></h2></td>
+          </tr>
+          <tr>
+            <td><b>Priority</b></td>
+            <td><%= priority.name %></td>
+          </tr>
+          <tr>
+            <td><b>Status</b></td>
+            <td><%= status.name %></td>
+          </tr>
+          <% if(typeof(assigned_to)=='object'){ %>
+            <tr>
+              <td><b>Assigned to</b></td>
+              <td>
+                <%= assigned_to.name %>
+                <% if(assigned_to.id==window.user.id){ %> &nbsp;(me) <% } %>
+              </td>
+            </tr>
+          <% } %>
+        </table>
+        <%= description %>
+      </div>
+    </script>
+    
     <!-- Javascript Libraries -->
     <script src="js/lib/zepto.min.js" type="text/javascript"></script>
     <script src="js/lib/json2.js" type="text/javascript"></script>
@@ -85,8 +124,9 @@
     <script src="js/lib/jquery.gravatar.js" type="text/javascript"></script>
     
     <!-- Helpers -->
+    <script src="js/NamedRoutes.js" type="text/javascript"></script>
     <script src="js/Helpers.js" type="text/javascript"></script>
-    
+
     <!-- Models -->
     <script src="js/models/User.js" type="text/javascript"></script>
     <script src="js/models/Project.js" type="text/javascript"></script>
@@ -103,6 +143,7 @@
     <script src="js/views/projects/ProjectView.js" type="text/javascript"></script>
     <script src="js/views/projects/ProjectsView.js" type="text/javascript"></script>
     <script src="js/views/issues/IssueView.js" type="text/javascript"></script>
+    <script src="js/views/issues/IssueDetailView.js" type="text/javascript"></script>
     <script src="js/views/issues/IssuesView.js" type="text/javascript"></script>
     
     <!-- Main Router -->

@@ -3,7 +3,8 @@ window.Controller = Backbone.Router.extend({
     ''                  : 'root',
     'new_user'          : 'new_user',
     'projects'          : 'projects',
-    'project/:id/issues': 'issues'
+    'project/:id/issues': 'issues',
+    'issue/:id'         : 'issue'
   },
   initialize: function(){
     window.user = new User();
@@ -30,12 +31,25 @@ window.Controller = Backbone.Router.extend({
     if(window.projects.length == 0){ window.projects.populate(); }
   },
   issues: function(id){
-    window.projects.populate(function(){
+    function issuesRoute(){
       var issues = new Issues();
       issues.project = window.projects.get(parseInt(id));
       var view = new IssuesView({collection: issues});
       transition_to(view.render().el);
       issues.populate();
+    }
+    if(window.projects.length == 0){ 
+      window.projects.populate(function(){ issuesRoute(); }); 
+    } else {
+      issuesRoute();
+    }
+  },
+  issue: function(id){
+    var issue = new Issue();
+    issue.populate_by_id(id, function(){
+      var view = new IssueDetailView({model: issue});
+      transition_to(view.render().el);
+      console.log(issue.toJSON());
     });
   }
 });
@@ -53,7 +67,7 @@ $(function(){
   }
   
   // Show Loading
-  $.ajaxSettings.beforeSend = function(){ $('.loading').show(); }
-  $.ajaxSettings.complete = function(){ $('loading').hide(); }
+  $.ajaxSettings.beforeSend = function(){ $('.loading').show(); };
+  $.ajaxSettings.complete = function(){ $('loading').hide(); };
 });
 
