@@ -1,9 +1,3 @@
-// ''                  : 'root',
-// 'new_user'          : 'new_user',
-// 'projects'          : 'projects',
-// 'project/:id/issues': 'issues',
-// 'issue/:id'         : 'issue'
-
 function root_path(){
   return "";
 }
